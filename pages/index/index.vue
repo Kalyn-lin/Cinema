@@ -85,7 +85,7 @@
 
 			<scroll-view class="scroll-view_H" scroll-x="true" show-scrollbar="false">
 				<view class="scroll-view-item_H">
-					<view class="hotBody">
+					<view class="hotBody" @click="toDetail()">
 						<view v-for="item in hotList">
 							<view class="hotCard">
 								<image style="height: 310upx;width: 220upx;border-radius: 20upx;" :src="item.url">
@@ -120,16 +120,18 @@
 									<view class="note">{{(item.wantCount)}}万想看
 									</view>
 								</image>
-			
+
 								<view style="margin: 14upx 8upx;">{{item.name}}</view>
-								<view style="margin: 0 8upx 10upx 8upx;"  :style="{'color': item.time.length > 2 ? '#a2a0a1' : '#dd4c42'}">{{item.time}}</view>
+								<view style="margin: 0 8upx 10upx 8upx;"
+									:style="{'color': item.time.length > 2 ? '#a2a0a1' : '#dd4c42'}">{{item.time}}
+								</view>
 								<view class="butn" :style="{'background-color': item.type==1 ? '#dd4c42' : '#599ce0'} ">
 									{{item.type ==1 ? "购票" : "预售"}}
 								</view>
 							</view>
 						</view>
 					</view>
-			
+
 				</view>
 			</scroll-view>
 		</view>
@@ -169,25 +171,25 @@
 						url: "../../static/image/1.jpg",
 						name: "哥，你好",
 						type: 2,
-						time:'明天',
+						time: '明天',
 						wantCount: 3.0
 					}, {
 						url: "../../static/image/2.jpg",
 						name: "万里归途",
 						type: 2,
-						time:'后天',
-						wantCount:2.6
+						time: '后天',
+						wantCount: 2.6
 					}, {
 						url: "../../static/image/3.jpg",
 						name: "明日战记",
 						type: 2,
-						time:'明天',
+						time: '明天',
 						wantCount: 12.0
 					},
 					{
 						url: "../../static/image/3.jpg",
 						name: "明日战记",
-						time:'10月3号',
+						time: '10月3号',
 						type: 2,
 						wantCount: 1.5
 					}
@@ -197,22 +199,26 @@
 		onLoad() {
 
 		},
-		filters:{
-				//取截单元,单位
-				moneyFormat:function(arg){
-				if(arg.toString().length>=9){
-						const moneys = arg/100000000
-						const realVal = parseFloat(moneys).toFixed(2);
-						return realVal+"亿"
-					}else if(arg.toString().length>=4){
-						const moneys = arg/10000
-						const realVal = parseFloat(moneys).toFixed(2);
-						return realVal+"万"
-					}
-					}
-				},
+		filters: {
+			//取截单元,单位
+			moneyFormat: function(arg) {
+				if (arg.toString().length >= 9) {
+					const moneys = arg / 100000000
+					const realVal = parseFloat(moneys).toFixed(2);
+					return realVal + "亿"
+				} else if (arg.toString().length >= 4) {
+					const moneys = arg / 10000
+					const realVal = parseFloat(moneys).toFixed(2);
+					return realVal + "万"
+				}
+			}
+		},
 		methods: {
-
+			toDetail(){
+				uni.navigateTo({
+					url: '/pages/index/details'
+				});
+			}
 		}
 	}
 </script>
@@ -265,7 +271,7 @@
 			margin: 0 8upx;
 			padding: 16upx;
 		}
-		
+
 		::-webkit-scrollbar {
 			display: none;
 			width: 0 !important;
@@ -275,7 +281,7 @@
 			color: transparent;
 		}
 
-	
+
 	}
 
 	.hotFilm {
@@ -318,7 +324,7 @@
 			margin: 10upx 0;
 			color: #fff;
 		}
-		
+
 		::-webkit-scrollbar {
 			display: none;
 			width: 0 !important;
@@ -334,21 +340,22 @@
 		background-color: #fff;
 		border-radius: 20upx;
 		padding: 20upx;
-		
-		.preHead{
+
+		.preHead {
 			display: flex;
 			justify-content: space-between;
 			padding: 10upx;
 		}
+
 		.preBody {
 			display: flex;
-		
+
 		}
-		
+
 		.preCard {
 			margin: 20upx 8upx;
 		}
-		
+
 		.note {
 			position: absolute;
 			/*设为绝对定位*/
@@ -357,9 +364,9 @@
 			font-size: 28upx;
 			color: #fff;
 			background: rgba(0, 0, 0, 0.4);
-		
+
 		}
-		
+
 		.butn {
 			padding: 10upx;
 			border-radius: 50upx;
@@ -368,7 +375,7 @@
 			margin: 10upx 0;
 			color: #fff;
 		}
-		
+
 		::-webkit-scrollbar {
 			display: none;
 			width: 0 !important;
@@ -378,18 +385,18 @@
 			color: transparent;
 		}
 	}
-	
-	
+
+
 	.scroll-view_H {
 		white-space: nowrap;
 		width: 100%;
 	}
-	
+
 	.scroll-view-item_H {
 		display: inline-block;
-	
+
 	}
-	
+
 	::-webkit-scrollbar {
 		display: none;
 		width: 0 !important;
