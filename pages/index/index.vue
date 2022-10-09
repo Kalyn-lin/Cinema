@@ -21,7 +21,7 @@
 					mode=""></image>
 				<view class="text">电影/影院</view>
 			</view>
-			<view class="menubox">
+			<view class="menubox" @click="toShow()">
 				<image src="../../static/image/music.png"
 					style="width:80upx ;height:80upx;background-image: linear-gradient(to bottom right,  #7f33f4, #d977ff);padding: 14upx;border-radius: 26upx;"
 					mode=""></image>
@@ -217,6 +217,11 @@
 			toDetail(){
 				uni.navigateTo({
 					url: '/pages/index/details'
+				});
+			},
+			toShow(){
+				uni.navigateTo({
+					url: '/pages/index/performShow'
 				});
 			}
 		}

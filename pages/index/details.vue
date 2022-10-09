@@ -117,7 +117,7 @@
 				:cmData="commentData" v-if="commentData"></hb-comment>
 		</view>
  <view style="background-color: #fff;width: 100%;text-align: center; position:fixed; bottom:0;padding: 20upx;">
-	 <button  style="width: 90%;border-radius: 50upx;background-color: #e64340; color: #fff;">特惠购票</button>
+	 <button  style="width: 90%;border-radius: 50upx;background-color: #e464340; color: #fff;">特惠购票</button>
  </view>
 
 
